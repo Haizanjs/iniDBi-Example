@@ -14,6 +14,6 @@ if (isServer) then {
 
 };
 
-// client save
+// client-save
 cash = 1000;
 save_data = [(clientOwner),cash,name player,getPlayerUID player];
