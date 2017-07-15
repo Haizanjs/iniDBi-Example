@@ -1,0 +1,19 @@
+// init.sqf
+if (isServer) then {
+	call compile preProcessFile "\iniDBi\init.sqf";
+};
+
+// server-side
+"save_data" addPublicVariableEventHandler {
+	_var = _this select 0;
+	_cash = _this select 1;
+	_name = _this select 2;
+	_uid = _this select 3;
+
+	[_uid,_name, "cash",cash] call iniDB_write;
+
+};
+
+// client save
+cash = 1000;
+save_data = [(clientOwner),cash,name player,getPlayerUID player];
