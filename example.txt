@@ -6,10 +6,7 @@ if (isServer) then {
 
 // server-side
 "save_data" addPublicVariableEventHandler {
-	_var = _this select 0;
-	_cash = _this select 1;
-	_name = _this select 2;
-	_uid = _this select 3;
+	params ["_var","_cash","_name","_uid"];
 	[_uid,_name, "cash",cash] call iniDB_write;
 };
 
